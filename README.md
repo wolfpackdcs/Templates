@@ -10,3 +10,4 @@ The RootTemplateFolder is the folder containing the .template.config folder. Thi
 
 See also: https://docs.microsoft.com/nl-nl/dotnet/core/tools/custom-templates
 
+The project will contain 2 Azure functions. One function to tap into message bus events: ServiceBusFunction, the other function is a template for scheduled tasks: TimerFunction
