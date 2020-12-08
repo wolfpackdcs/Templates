@@ -1,0 +1,12 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "Wolfpack DCS",
+    "classifications": [ "Console" ],
+	"name": "Wolfpack DCS Azure Function Template",
+    "identity": "Orp.Core.Azure.Function.Template",
+    "shortName": "wolfpack-af-template",
+	"tags":{
+		"language": "C#"
+	},
+	"sourceName": "Orp.Core.Azure.Function.Template"
+}

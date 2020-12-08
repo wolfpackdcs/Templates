@@ -1,0 +1,12 @@
+{
+  "TenantConfigurations": [
+    {
+      "TenantId": "Staging",
+      "ScopeConfigurations": [
+        {
+          "ScopeId": "Staging"
+        }
+      ]
+    }
+  ]
+}

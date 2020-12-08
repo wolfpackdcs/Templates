@@ -1,0 +1,12 @@
+{
+  "TenantConfigurations": [
+    {
+      "TenantId": "Production",
+      "ScopeConfigurations": [
+        {
+          "ScopeId": "Production"
+        }
+      ]
+    }
+  ]
+}

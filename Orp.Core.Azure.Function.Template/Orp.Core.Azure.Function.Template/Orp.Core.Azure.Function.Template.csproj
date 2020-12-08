@@ -1,0 +1,55 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AzureFunctionsVersion>v3</AzureFunctionsVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Encrypted.Configuration.Provider.JsonFiles" Version="2019.5.2.1" />
+    <PackageReference Include="Gelf4Net" Version="3.0.0.7" />
+    <PackageReference Include="log4net" Version="2.0.8" />
+    <PackageReference Include="Microsoft.Azure.Functions.Extensions" Version="1.0.0" />
+    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions" Version="3.0.6" />
+    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.ServiceBus" Version="4.1.1" />
+    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Storage" Version="3.0.10" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Log4Net.AspNetCore" Version="3.1.0" />
+    <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="3.0.5" />
+    <PackageReference Include="Ninject" Version="3.3.4" />
+    <PackageReference Include="Orp.Core.Logging" Version="2020.1.9.1" />
+    <PackageReference Include="Orp.Core.Logging.Adapters.Core.Log4Net" Version="2020.1.9.1" />
+    <PackageReference Include="Orp.Core.Logging.Adapters.Log4Net" Version="2020.1.9.1" />
+    <PackageReference Include="Orp.Core.Logging.DI.Ninject" Version="2020.1.9.1" />
+    <PackageReference Include="Orp.Core.Logging.Interfaces" Version="2020.1.9.1" />
+    <PackageReference Include="Wolfpack.AzureServiceBus" Version="2020.3.12.1" />
+    <PackageReference Include="Wolfpack.MultiTenant.Core" Version="2019.8.15.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="host.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="local.settings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </None>
+    <None Update="log4net.Development.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="log4net.Production.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="log4net.Staging.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TenantConfiguration.Development.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TenantConfiguration.Production.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TenantConfiguration.Staging.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Orp.Core.Azure.Function.Template.Core\Orp.Core.Azure.Function.Template.Core.csproj" />
+  </ItemGroup>
+</Project>
