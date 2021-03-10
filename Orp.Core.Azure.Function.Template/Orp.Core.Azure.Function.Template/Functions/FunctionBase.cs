@@ -58,29 +58,17 @@ namespace Orp.Core.Azure.Function.Template.Functions
             return _kernel.GetAll<TenantContext>();
         }
 
-        protected Task<Message> RunAsMessageHandlerProcessManagerTaskAsync<TMessage, TMessageHandler>(Message message, IBinder binder = null) where TMessage : ASB_TaskMessage
-                                                                                                                                              where TMessageHandler : class, IHandleMessage<TMessage>
-        => RunAsProcessManagerTaskAsync<TMessage>(message, (msg, tenantScope) =>
-        {
-            var handler = _kernel.Get<TMessageHandler>(GetNinjectParameter(tenantScope),
-                                                       new ConstructorArgument("binder", binder, true));
-            return handler.HandleAsync(msg);
-        });
-
-        private async Task<Message> RunAsProcessManagerTaskAsync<TMessage>(Message message, Func<TMessage, string, Task> action) where TMessage : ASB_TaskMessage
+        protected async Task<Message> RunAsMessageHandlerProcessManagerTaskAsync<TMessage, TMessageHandler>(Message message, IBinder binder = null) where TMessage : ASB_TaskMessage
+                                                                                                                                                    where TMessageHandler : class, IHandleMessage<TMessage>
         {
             TMessage msg = JsonConvert.DeserializeObject<TMessage>(Encoding.UTF8.GetString(message.Body));
-
             ILog logger = null;
-
             try
             {
                 TenantContext tenantContext = new TenantContext(msg.TenantId, msg.ScopeId);
-
                 logger = _kernel.Get<TenantLoggerFactory>(GetNinjectParameter(tenantContext.TenantScope)).CreateLogger();
-
-                await action(msg, GetTenantScope(msg));
-
+                var handler = _kernel.Get<TMessageHandler>(GetNinjectParameter(tenantContext.TenantScope), new ConstructorArgument("binder", binder, true));
+                await handler.HandleAsync(msg);
                 return CreateTaskResultMessage(msg);
             }
             catch (Exception ex)
