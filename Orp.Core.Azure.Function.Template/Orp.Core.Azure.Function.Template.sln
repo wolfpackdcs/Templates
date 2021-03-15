@@ -5,7 +5,13 @@ VisualStudioVersion = 16.0.29920.165
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orp.Core.Azure.Function.Template", "Orp.Core.Azure.Function.Template\Orp.Core.Azure.Function.Template.csproj", "{82DB71E1-69C5-4D98-8BBF-1041840BFBE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orp.Core.Azure.Function.Template.Core", "Orp.Core.Azure.Function.Template.Core\Orp.Core.Azure.Function.Template.Core.csproj", "{F1D52EAC-369A-454F-B30A-9FB9989E76A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orp.Core.Azure.Function.Template.Core", "Orp.Core.Azure.Function.Template.Core\Orp.Core.Azure.Function.Template.Core.csproj", "{F1D52EAC-369A-454F-B30A-9FB9989E76A5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6A430186-14B7-4A87-BD3F-2F74F16D40A4}"
+	ProjectSection(SolutionItems) = preProject
+		azure-pipelines-master.yml = azure-pipelines-master.yml
+		azure-pipelines-staging.yml = azure-pipelines-staging.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
